@@ -1,0 +1,258 @@
+.Banner_HOME {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+
+    .TEAXTIK {
+        font-family: 'Poppins', sans-serif;
+        font-size: 25px;
+        font-weight: 700;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #27ae60, #2ecc71);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .Banner_HOPPy {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .B_HOMEE {
+            max-width: 280px;
+            min-width: 150px;
+            width: 100%;
+            height: auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .B_IMG_HOME {
+                width: 100%;
+                height: 220px;
+                position: relative;
+                overflow: hidden;
+
+                .IMG_B1 {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+
+                &:hover .IMG_B1 {
+                    transform: scale(1.05);
+                }
+
+                .IMG_B2_C,
+                .IMG_B2 {
+                    width: 28px;
+                    height: 28px;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 12px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: transform 0.3s ease, filter 0.3s ease;
+                }
+
+                .IMG_B2_C {
+                    left: 12px;
+                }
+
+                .IMG_B2 {
+                    right: 12px;
+                    content: url("../../assets/image/B_heart.png");
+                }
+
+                .IMG_B2:hover {
+                    content: url("../../assets/image/R_heart.png");
+                    transform: scale(1.2) rotate(10deg);
+                    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.6));
+                }
+            }
+
+            .B_TEXT_HOME {
+                width: 100%;
+                padding: 14px 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .B_TEXT_top {
+                    line-height: 1.5;
+                    font-family: 'Roboto', sans-serif;
+
+                    h3 {
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: #111111;
+                        margin-bottom: 4px;
+                    }
+
+                    div {
+                        display: flex;
+                        gap: 6px;
+
+                        .B_p1 {
+                            color: #00a341;
+                            font-weight: 500;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .B_p2 {
+                        color: #1c1c1c;
+                        font-weight: 400;
+                        font-size: 14px;
+                    }
+
+                    .B_p3 {
+                        color: #888888;
+                        font-weight: 400;
+                        font-size: 13px;
+                    }
+
+                    h4 {
+                        font-weight: 500;
+                        font-size: 14px;
+                    }
+                }
+
+                .B_TEXT_bottom {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    font-size: 14px;
+                    color: #333333;
+                    font-family: 'Roboto', sans-serif;
+
+                    div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: #00a341;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1980px) {
+        .Banner_HOPPy {
+            gap: 15px;
+
+            .B_HOMEE {
+                max-width: 400px;
+            }
+        }
+    }
+
+    @media (min-width: 1440px) and (max-width:1980px) {
+        .Banner_HOPPy {
+            gap: 15px;
+
+            .B_HOMEE {
+                max-width: 350px;
+            }
+        }
+    }
+
+    @media (min-width: 1080px) and (max-width: 1440px) {
+        .Banner_HOPPy {
+            gap: 15px;
+
+            .B_HOMEE {
+                max-width: 270px;
+            }
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 1080px) {
+        .TEAXTIK {
+            font-size: 22px;
+        }
+
+        .Banner_HOPPy {
+            justify-content: center;
+            gap: 15px;
+
+            .B_HOMEE {
+                max-width: 400px;
+
+                .B_IMG_HOME {
+                    height: 200px;
+                }
+
+                .B_TEXT_HOME {
+                    padding: 12px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        .TEAXTIK {
+            font-size: 18px;
+        }
+
+        .Banner_HOPPy {
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+
+            .B_HOMEE {
+                max-width: 250px;
+
+                .B_IMG_HOME {
+                    height: 200px;
+                }
+
+                .B_TEXT_HOME {
+                    padding: 10px;
+
+                    .B_TEXT_top h3 {
+                        font-size: 16px;
+                    }
+
+                    .B_TEXT_top .B_p2,
+                    .B_TEXT_top .B_p3 {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .TEAXTIK {
+            font-size: 16px;
+        }
+
+        .Banner_HOPPy .B_HOMEE {
+            max-width: 100%;
+            border-radius: 12px;
+
+            .B_IMG_HOME {
+                height: 160px;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.Baner_REc {
+    width: 100%;
+    border: 1px solid red;
+    height: 220px;
+
+    .CArusel {
+        width: 100%;
+        height: 220px;
+        padding: 20px;
+        background-color: green;
+        border-radius: 12px;
+
+        img {
+            width: 100%;
+            height: 170px;
+            object-fit: contain;
+            border: 1px solid red;
+            background-color: white;
+            border-radius: 12px;
+        }
+    }
+}

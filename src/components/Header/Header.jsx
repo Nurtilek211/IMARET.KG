@@ -35,7 +35,7 @@ function Header() {
     <header className='Home_H'>
       <div className='WE_HEader'>
         <div className='Home_H_Left'>
-          <img src={IMARET_L} alt="" className='H_LOgo' />
+          <Link to="/"><img src={IMARET_L} alt="" className='H_LOgo' /></Link>
           <div className='We_H'>
             <div className='Home_H_left_top'>
               <ul>
