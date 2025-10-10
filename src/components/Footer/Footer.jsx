@@ -4,6 +4,7 @@ import Instagram from "../../assets/image/instagram.png"
 import Facebook from "../../assets/image/facebook.png"
 import Telegram from "../../assets/image/telegram.png"
 import Whatsapp from "../../assets/image/whatsapp.png"
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -27,10 +28,10 @@ function Footer() {
 
         <div className='footer_C F_33'>
           <h3>По сроку сдачи</h3>
-          <p>Сданные</p>
-          <p>2025 год</p>
-          <p>2026 год</p>
-          <p>2027 год</p>
+          <Link to="/year/done"><p>Сданные</p></Link>
+          <Link to="/year/2025"><p>2025 год</p></Link>
+          <Link to="/year/2026"><p>2026 год</p></Link>
+          <Link to="/year/2027"><p>2027 год</p></Link>
         </div>
 
         <div className='footer_C F_44'>
@@ -59,18 +60,18 @@ function Footer() {
             Рекламодателям
             Контакты</h3>
         </div>
-        
+
         <div className='footer_CEN'>
           <div>
             <img src={Instagram} alt="" />
           </div>
-           <div>
+          <div>
             <img src={Facebook} alt="" />
           </div>
-           <div>
+          <div>
             <img src={Telegram} alt="" />
           </div>
-           <div>
+          <div>
             <img src={Whatsapp} alt="" />
           </div>
         </div>

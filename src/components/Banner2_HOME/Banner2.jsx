@@ -47,6 +47,7 @@ function Banner2() {
                                 </div>
                                 <p className="B_p2">{item.city}</p>
                                 <p className="B_p3">{item.address}</p>
+                                <hr />
                                 <h4>от ${item.price_per_m2} за м²</h4>
                             </div>
 
