@@ -1,8 +1,6 @@
-// src/redux/buildingsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { apiApartament } from "../../axios/apiApartament"; // твой инстанс
+import { apiApartament } from "../../axios/apiApartament";
 
-// Асинхронный thunk для получения всех квартир
 export const getBuildings = createAsyncThunk(
   "buildings/fetch",
   async (_, { rejectWithValue }) => {
