@@ -1,16 +1,20 @@
-import React from 'react'
-import Header from '../Header/Header'
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Header from "../Header/Header";
 import Footer from '../Footer/Footer'
-import { Outlet } from 'react-router-dom'
 
 function Layout() {
+  const [search, setSearch] = useState("");
+
   return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
-  )
+    <>
+      <Header search={search} setSearch={setSearch} />
+      <main>
+        <Outlet context={{ search }} />
+      </main>
+      <Footer/>
+    </>
+  );
 }
 
-export default Layout
+export default Layout;

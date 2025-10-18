@@ -1,0 +1,137 @@
+.wish-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 32px;
+    background-color: #fafafa;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    h2 {
+        grid-column: 1 / -1;
+        font-size: 2rem;
+        margin-bottom: 16px;
+        text-align: center;
+        color: #222;
+    }
+
+    .wish-list-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+
+        button {
+            background-color: #ff5959;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.25s ease;
+
+            &:hover {
+                background-color: #e04848;
+            }
+        }
+    }
+
+    .wish-list-item {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            align-self: center;
+            margin-top: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.25s ease;
+
+            &:hover {
+                background-color: #0065d1;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 600px) {
+    .wish-list {
+        grid-template-columns: 1fr;
+        padding: 16px;
+
+        .wish-list-item {
+            padding: 12px;
+        }
+    }
+}
+
+
+.wish-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  text-align: center;
+  color: #444;
+  animation: fadeIn 0.5s ease;
+
+  p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .Block {
+    display: inline-block;
+    background-color: #78ff56;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      background-color: #005fcc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,257 +1,218 @@
 .Banner_HOME {
-    width: 100%;
-    height: 100%;
+    padding: 40px 6%;
+    background: linear-gradient(120deg, #f8fafc, #eef2f7);
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
 
     .TEAXTIK {
-        font-family: 'Poppins', sans-serif;
-        font-size: 25px;
-        font-weight: 700;
-        text-transform: uppercase;
-        background: linear-gradient(90deg, #27ae60, #2ecc71);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 25px;
         text-align: center;
+        margin-bottom: 40px;
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #475569;
+            margin-top: 8px;
+        }
     }
 
     .Banner_HOPPy {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 30px;
+        justify-items: center;
+    }
 
-        .B_HOMEE {
-            max-width: 480px;
-            min-width: 150px;
+    .B_HOMEE {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    .B_IMG_HOME {
+        position: relative;
+
+        .IMG_B1 {
             width: 100%;
-            height: auto;
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        &:hover .IMG_B1 {
+            transform: scale(1.08);
+        }
+
+        .company-logo {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+            img {
+                width: 60px;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+
+        .heart-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
             cursor: pointer;
+            padding: 0;
+            transition: transform 0.3s ease;
+
+            img {
+                width: 28px;
+                height: 28px;
+            }
+
+            &.liked img {
+                animation: pulse 0.4s ease;
+            }
 
             &:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-            }
-
-            .B_IMG_HOME {
-                width: 100%;
-                height: 220px;
-                position: relative;
-                overflow: hidden;
-
-                .IMG_B1 {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    transition: transform 0.5s ease;
-                }
-
-                &:hover .IMG_B1 {
-                    transform: scale(1.05);
-                }
-
-                .IMG_B2_C,
-                .IMG_B2 {
-                    width: 28px;
-                    height: 28px;
-                    object-fit: cover;
-                    position: absolute;
-                    top: 12px;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: transform 0.3s ease, filter 0.3s ease;
-                }
-
-                .IMG_B2_C {
-                    left: 12px;
-                }
-
-                .IMG_B2 {
-                    right: 12px;
-                    content: url("../../assets/image/B_heart.png");
-                }
-
-                .IMG_B2:hover {
-                    content: url("../../assets/image/R_heart.png");
-                    transform: scale(1.2) rotate(10deg);
-                    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.6));
-                }
-            }
-
-            .B_TEXT_HOME {
-                width: 100%;
-                padding: 14px 16px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-
-                .B_TEXT_top {
-                    line-height: 1.5;
-                    font-family: 'Roboto', sans-serif;
-
-                    h3 {
-                        font-weight: 700;
-                        font-size: 18px;
-                        color: #111111;
-                        margin-bottom: 4px;
-                    }
-
-                    div {
-                        display: flex;
-                        gap: 6px;
-
-                        .B_p1 {
-                            color: #00a341;
-                            font-weight: 500;
-                            font-size: 14px;
-                        }
-                    }
-
-                    .B_p2 {
-                        color: #1c1c1c;
-                        font-weight: 400;
-                        font-size: 14px;
-                    }
-
-                    .B_p3 {
-                        color: #888888;
-                        font-weight: 400;
-                        font-size: 13px;
-                    }
-
-                    h4 {
-                        font-weight: 500;
-                        font-size: 14px;
-                    }
-                }
-
-                .B_TEXT_bottom {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 5px;
-                    font-size: 14px;
-                    color: #333333;
-                    font-family: 'Roboto', sans-serif;
-
-                    div {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        transition: color 0.3s ease;
-
-                        &:hover {
-                            color: #00a341;
-                        }
-                    }
-                }
+                transform: scale(1.2);
             }
         }
     }
 
-    @media (min-width: 1980px) {
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.4);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .B_TEXT_HOME {
+        padding: 20px;
+        color: #1e293b;
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .B_p1 {
+            font-weight: 500;
+            color: #3b82f6;
+            margin-bottom: 5px;
+        }
+
+        .B_p2,
+        .B_p3 {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 12px 0;
+        }
+
+        h4 {
+            color: #16a34a;
+            font-weight: 600;
+        }
+    }
+
+    .B_TEXT_bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding-top: 12px;
+
+        div {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 8px 10px;
+            flex: 1;
+            text-align: center;
+
+            p {
+                margin: 0;
+                font-size: 0.85rem;
+                color: #334155;
+            }
+
+            .Ban_p1 {
+                font-weight: 600;
+            }
+
+            .Ban_p3 {
+                color: #22c55e;
+                font-weight: 600;
+            }
+        }
+    }
+
+    @media (max-width: 1440px) {
         .Banner_HOPPy {
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
 
-            .B_HOMEE {
-                max-width: 450px;
+            .B_HOMEE{
+                max-width: 325px;
             }
         }
     }
 
-    @media (min-width: 1440px) and (max-width:1979px) {
+    @media (max-width: 992px) {
         .Banner_HOPPy {
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        }
 
-            .B_HOMEE {
-                max-width: 350px;
-            }
+        .IMG_B1 {
+            height: 200px;
         }
     }
 
-    @media (min-width: 1080px) and (max-width: 1439px) {
-        .Banner_HOPPy {
-            gap: 15px;
-
-            .B_HOMEE {
-                max-width: 270px;
-            }
-        }
-    }
-
-    @media (min-width: 600px) and (max-width: 1079px) {
-        .TEAXTIK {
-            font-size: 22px;
+    @media (max-width: 600px) {
+        .TEAXTIK h3 {
+            font-size: 1.4rem;
         }
 
-        .Banner_HOPPy {
-            justify-content: center;
-            gap: 15px;
-
-            .B_HOMEE {
-                max-width: 400px;
-
-                .B_IMG_HOME {
-                    height: 200px;
-                }
-
-                .B_TEXT_HOME {
-                    padding: 12px;
-                }
-            }
-        }
-    }
-
-    @media (max-width: 599px) {
-        .TEAXTIK {
-            font-size: 18px;
+        .B_TEXT_HOME h3 {
+            font-size: 1.1rem;
         }
 
-        .Banner_HOPPy {
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-
-            .B_HOMEE {
-                max-width: 250px;
-
-                .B_IMG_HOME {
-                    height: 200px;
-                }
-
-                .B_TEXT_HOME {
-                    padding: 10px;
-
-                    .B_TEXT_top h3 {
-                        font-size: 16px;
-                    }
-
-                    .B_TEXT_top .B_p2,
-                    .B_TEXT_top .B_p3 {
-                        font-size: 13px;
-                    }
-                }
-            }
-        }
-    }
-
-    @media (max-width: 400px) {
-        .TEAXTIK {
-            font-size: 16px;
+        .IMG_B1 {
+            height: 180px;
         }
 
-        .Banner_HOPPy .B_HOMEE {
-            max-width: 100%;
-            border-radius: 12px;
-
-            .B_IMG_HOME {
-                height: 160px;
-            }
+        .company-logo img {
+            width: 45px;
         }
     }
 }

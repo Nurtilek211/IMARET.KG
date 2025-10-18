@@ -49,7 +49,7 @@ function Footer() {
       <div className='Footer_2'>
         <div className='footer_C F_11'>
           <h3>По общим вопросам</h3>
-          <p>info@IMARET.KG</p>
+          <a href="https://www.figma.com/design/uCx5aaaD3s3EbdaWh30ykO/OG-Style?node-id=138-23&t=zxkHKd6gZXnDKpJx-0"><p>info@IMARET.KG</p></a>
         </div>
         <div className='footer_C F_22'>
           <h3>По вопросам размещения рекламы</h3>

@@ -1,0 +1,199 @@
+.company-detail {
+  padding: 30px 5%;
+  background: #f4f6f8;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+
+  &__card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 50px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 6px;
+
+      &.COnas {
+        color: #fbbf24;
+        font-weight: 500;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__apartments {
+    margin-top: 20px;
+
+    .apartments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .apartment-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.08);
+        }
+      }
+
+      .apartment-info {
+        padding: 15px;
+
+        h4 {
+          font-size: 1.2rem;
+          margin-bottom: 6px;
+        }
+
+        p {
+          font-size: 0.95rem;
+          margin-bottom: 4px;
+
+          strong {
+            font-weight: 600;
+          }
+        }
+
+        .apartment-link {
+          display: inline-block;
+          margin-top: 8px;
+          color: #3b82f6;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s ease;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  &__back {
+    margin-top: 40px;
+    text-align: center;
+
+    .back-button {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 25px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  @media (max-width: 1980px) {
+    &__card {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__image {
+      width: 100%;
+      height: 220px;
+    }
+
+    .company-detail {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      max-width: 150px;
+    }
+  }
+
+
+  @media (max-width: 1024px) {
+    &__card {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__image {
+      width: 100%;
+      height: 220px;
+    }
+
+    .apartments-grid {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 20px 3%;
+
+    &__info h2 {
+      font-size: 1.5rem;
+    }
+
+    .apartment-card img {
+      height: 150px;
+    }
+
+    .apartment-info h4 {
+      font-size: 1.1rem;
+    }
+  }
+}

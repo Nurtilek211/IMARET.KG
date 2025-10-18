@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.developers-menu {
+    font-family: "Inter", sans-serif;
+    padding: 40px 6%;
+    background: linear-gradient(120deg, #f8fafc, #eef2f7);
+    min-height: 100vh;
+
+    &__loading,
+    &__empty {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #475569;
+        margin-top: 40px;
+    }
+
+    .developers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 30px;
+        justify-items: center;
+    }
+
+    .developer-card {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        max-width: 400px;
+        position: relative;
+        animation: fadeUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        &__image {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+            }
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+
+            .company-logo {
+                position: absolute;
+                bottom: 12px;
+                left: 12px;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 10px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+                img {
+                    width: 60px;
+                    height: auto;
+                    object-fit: contain;
+                    border-radius: 10px;
+                }
+            }
+
+            .heart-btn {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+
+                img {
+                    width: 28px;
+                    height: 28px;
+                }
+
+                &.liked img {
+                    animation: pulse 0.4s ease;
+                }
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        &__info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h3 {
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: #1e293b;
+                margin: 0;
+            }
+
+            p {
+                color: #475569;
+                font-size: 0.95rem;
+                line-height: 1.5;
+                min-height: 10px;
+            }
+
+            .clorer{
+                color: #16a34a;
+            }
+
+            .details-link {
+                color: #3b82f6;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.4);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Адаптив до 1980px */
+    @media (max-width: 1980px) {
+        .developers-grid {
+            gap: 25px;
+        }
+    }
+
+    @media (max-width: 1440px) {
+        .developers-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 30px 5%;
+    }
+
+    @media (max-width: 992px) {
+        .developers-grid {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding: 20px 3%;
+
+        .developer-card__info h3 {
+            font-size: 1.1rem;
+        }
+
+        .developer-card__image {
+            height: 180px;
+        }
+
+        .company-logo img {
+            width: 45px;
+        }
+    }
+}
