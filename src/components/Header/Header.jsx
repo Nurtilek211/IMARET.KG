@@ -9,7 +9,7 @@ function Header( {search, setSearch }) {
 
   const menuItems = [
     { label: "Главная", path: "/" },
-    { label: "Портнёры", path: "/partners" },
+    { label: "Партнёры", path: "/partners" },
     { label: "О компании", path: "/about" },
     { label: "Контакты", path: "/Contact" },
   ];
@@ -28,7 +28,7 @@ function Header( {search, setSearch }) {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      const searchEl = document.querySelector('.Search_l');
+      const searchEl = document.querySelector('.Search_l')
       if (searchEl && !searchEl.contains(e.target)) {
         setActive(false);
       }

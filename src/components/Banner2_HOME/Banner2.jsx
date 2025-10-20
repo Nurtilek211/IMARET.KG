@@ -5,17 +5,19 @@ import R_HEART from "../../assets/image/R_heart.png";
 import { apiApartament } from "../../axios/apiApartament";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWish, removeFromWish } from "../../redux/Wish/wishSlice";
-import { Link } from "react-router-dom";
-import Loadinger from "../Loading/Loading";
 import { useNavigate } from "react-router-dom";
+import Loadinger from "../Loading/Loading";
+import Pagination from "../Panigation/Panigation";
 
 function Banner2() {
   const dispatch = useDispatch();
   const wishItems = useSelector((state) => state.wish.items);
+  const navigate = useNavigate();
 
   const [complexes, setComplexes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     apiApartament
@@ -37,6 +39,11 @@ function Banner2() {
     }
   };
 
+  const totalPages = Math.ceil(complexes.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const visibleComplexes = complexes.slice(startIndex, endIndex);
+
   return (
     <div className="Banner_HOME">
       <div className="TEAXTIK">
@@ -45,7 +52,7 @@ function Banner2() {
       </div>
 
       <div className="Banner_HOPPy">
-        {complexes.map((item) => (
+        {visibleComplexes.map((item) => (
           <div className="B_HOMEE" key={item.id}>
             <div className="B_IMG_HOME">
               <img src={item.image} alt={item.title} className="IMG_B1" />
@@ -53,7 +60,8 @@ function Banner2() {
               {item.imageC && (
                 <div
                   className="company-logo"
-                  onClick={() => navigate(`/companies/${item.id}`)}>
+                  onClick={() => navigate(`/companies/${item.id}`)}
+                >
                   <img src={item.imageC} alt="logo" />
                 </div>
               )}
@@ -69,18 +77,23 @@ function Banner2() {
             <div className="B_TEXT_HOME">
               <div className="B_TEXT_top">
                 <h3>{item.title}</h3>
-                <p className="B_p1">{item.developer}</p>
+                <p
+                  className="B_p1"
+                  onClick={() => navigate(`/companies/${item.id}`)}
+                >
+                  {item.developer}
+                </p>
                 <p className="B_p2">{item.city}</p>
                 <p className="B_p3">{item.address}</p>
                 <hr />
-                <h4>от ${item.price_per_m2} за м²</h4>
+                <h4>{item.price_per_m2}</h4>
               </div>
 
               <div className="B_TEXT_bottom">
                 {item.flats?.map((flat, i) => (
                   <div key={i}>
                     <p className="Ban_p1">{flat.rooms}-ком.</p>
-                    <p className="Ban_p2">от {flat.area} м²</p>
+                    <p className="Ban_p2">от {flat.area}</p>
                     <p className="Ban_p3">от ${flat.price}</p>
                   </div>
                 ))}
@@ -89,7 +102,17 @@ function Banner2() {
           </div>
         ))}
       </div>
-    </div >
+
+      {totalPages > 1 && (
+        <div className="pagination-wrapper">
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      )}
+    </div>
   );
 }
 

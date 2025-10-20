@@ -109,7 +109,7 @@
         left: 0;
         overflow: hidden;
         z-index: 1;
-        pointer-events: none; // важно, чтобы кнопки были кликабельными
+        pointer-events: none;
 
         span {
             position: absolute;

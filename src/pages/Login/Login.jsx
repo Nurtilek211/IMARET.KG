@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import "./Login.scss"; // твои стили, можно использовать такие же как в Register
+import "./Login.scss";
 
 function Login() {
     const [formData, setFormData] = useState({ email: "", password: "" });
@@ -22,7 +22,6 @@ function Login() {
         }
 
         try {
-            // Авторизация через Firebase
             await signInWithEmailAndPassword(auth, email.trim(), password);
 
             setMessage("Вход выполнен успешно! ✅");

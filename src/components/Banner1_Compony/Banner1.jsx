@@ -15,7 +15,13 @@ function Banner1() {
         const res = await axios.get(
           "https://68e14f818943bf6bb3c3e301.mockapi.io/company/House/apartments"
         );
-        setCompanies(res.data);
+
+        const uniqueCompanies = res.data.filter(
+          (company, index, self) =>
+            index === self.findIndex((c) => c.imageC === company.imageC)
+        );
+
+        setCompanies(uniqueCompanies);
       } catch (err) {
         console.error("Ошибка при загрузке логотипов:", err);
       } finally {
@@ -44,7 +50,7 @@ function Banner1() {
               onClick={() => navigate(`/companies/${company.id}`)}
             >
               <img
-                src={company.imageC || "Картинка остсуствует!"}
+                src={company.imageC || Bish}
                 alt={company.title || "Компания"}
               />
             </div>
