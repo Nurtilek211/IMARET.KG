@@ -1,33 +1,66 @@
 .company-detail {
-  padding: 30px 5%;
+  padding: 40px 5%;
   background: #f4f6f8;
   min-height: 100vh;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #1e293b;
+  transition: all 0.3s ease;
 
   &__card {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
     margin-bottom: 50px;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    transition: all 0.4s ease;
 
     &:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .Cardiv {
+      position: relative;
+
+      .heart-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: transform 0.3s ease;
+
+        img {
+          width: 28px;
+          height: 28px;
+        }
+
+        &.liked img {
+          animation: pulse 0.4s ease;
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
     }
   }
 
   &__image {
-    width: 300px;
-    height: 200px;
+    flex: 1 1 350px;
+    max-width: 500px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 0;
-    transition: transform 0.4s ease;
+    border-radius: 16px;
+    transition: transform 0.5s ease;
 
     &:hover {
       transform: scale(1.05);
@@ -35,58 +68,68 @@
   }
 
   &__info {
-    flex: 1;
+    flex: 1 1 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 15px;
+    padding: 15px 25px;
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 800;
       margin-bottom: 10px;
+      color: #2563eb;
     }
 
     p {
       font-size: 1rem;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
 
       &.COnas {
-        color: #fbbf24;
-        font-weight: 500;
+        color: #16a34a;
+        font-weight: 600;
       }
 
       strong {
-        font-weight: 600;
+        font-weight: 700;
       }
     }
   }
 
   &__apartments {
-    margin-top: 20px;
+    margin-top: 40px;
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #4f46e5;
+      font-weight: 700;
+    }
 
     .apartments-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     .apartment-card {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
 
       &:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+        transform: translateY(-8px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
       }
 
       img {
         width: 100%;
-        height: 180px;
+        height: 200px;
         object-fit: cover;
-        transition: transform 0.3s ease;
+        transition: transform 0.4s ease;
 
         &:hover {
           transform: scale(1.08);
@@ -94,16 +137,18 @@
       }
 
       .apartment-info {
-        padding: 15px;
+        padding: 16px;
 
         h4 {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
+          font-weight: 700;
           margin-bottom: 6px;
+          color: #1e293b;
         }
 
         p {
           font-size: 0.95rem;
-          margin-bottom: 4px;
+          margin-bottom: 5px;
 
           strong {
             font-weight: 600;
@@ -112,13 +157,14 @@
 
         .apartment-link {
           display: inline-block;
-          margin-top: 8px;
-          color: #3b82f6;
-          font-weight: 500;
+          margin-top: 10px;
+          color: #2563eb;
+          font-weight: 600;
           text-decoration: none;
-          transition: all 0.2s ease;
+          transition: all 0.3s ease;
 
           &:hover {
+            color: #1d4ed8;
             text-decoration: underline;
           }
         }
@@ -127,73 +173,108 @@
   }
 
   &__back {
-    margin-top: 40px;
+    margin-top: 50px;
     text-align: center;
 
     .back-button {
       display: inline-block;
-      background: #3b82f6;
+      background: linear-gradient(135deg, #3b82f6, #16a34a);
       color: #fff;
-      font-weight: 600;
-      padding: 10px 25px;
-      border-radius: 12px;
+      font-weight: 700;
+      padding: 12px 30px;
+      border-radius: 14px;
       text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+      transition: all 0.3s ease;
 
       &:hover {
-        background: #2563eb;
-        transform: translateY(-2px);
+        background: linear-gradient(135deg, #2563eb, #15803d);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
       }
     }
   }
 
-  @media (max-width: 1980px) {
-    &__card {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__image {
-      width: 100%;
-      height: 220px;
-    }
-
-    .company-detail {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      max-width: 150px;
-    }
-  }
-
-
   @media (max-width: 1024px) {
+    padding: 30px 4%;
+
     &__card {
       flex-direction: column;
-      align-items: center;
+      text-align: center;
     }
 
     &__image {
       width: 100%;
-      height: 220px;
+      height: 250px;
+      border-radius: 12px;
     }
 
-    .apartments-grid {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    &__info {
+      padding: 10px 0;
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
+    &__apartments {
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .apartments-grid {
+        gap: 20px;
+      }
+
+      .apartment-card {
+        img {
+          height: 160px;
+        }
+
+        .apartment-info {
+          padding: 12px;
+
+          h4 {
+            font-size: 1.1rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    &__back .back-button {
+      padding: 10px 22px;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
     padding: 20px 3%;
 
+    &__card {
+      gap: 15px;
+      padding: 10px;
+    }
+
+    &__image {
+      height: 200px;
+    }
+
     &__info h2 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
-    .apartment-card img {
-      height: 150px;
-    }
-
-    .apartment-info h4 {
-      font-size: 1.1rem;
+    &__apartments h3 {
+      font-size: 1.3rem;
     }
   }
 }

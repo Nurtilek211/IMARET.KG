@@ -5,6 +5,9 @@ import R_HEART from "../../assets/image/R_heart.png";
 import { apiApartament } from "../../axios/apiApartament";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWish, removeFromWish } from "../../redux/Wish/wishSlice";
+import { Link } from "react-router-dom";
+import Loadinger from "../Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 function Banner2() {
   const dispatch = useDispatch();
@@ -12,6 +15,7 @@ function Banner2() {
 
   const [complexes, setComplexes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     apiApartament
@@ -21,7 +25,7 @@ function Banner2() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p className="loading-text">Загрузка...</p>;
+  if (loading) return <Loadinger />;
 
   const isLiked = (item) => wishItems.some((i) => i.id === item.id);
 
@@ -47,7 +51,9 @@ function Banner2() {
               <img src={item.image} alt={item.title} className="IMG_B1" />
 
               {item.imageC && (
-                <div className="company-logo">
+                <div
+                  className="company-logo"
+                  onClick={() => navigate(`/companies/${item.id}`)}>
                   <img src={item.imageC} alt="logo" />
                 </div>
               )}
@@ -83,7 +89,7 @@ function Banner2() {
           </div>
         ))}
       </div>
-    </div>
+    </div >
   );
 }
 

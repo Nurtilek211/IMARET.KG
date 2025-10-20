@@ -1,44 +1,52 @@
 import React, { useEffect, useState } from "react";
 import "./Banner1.scss";
 import Bish from "../../assets/image/Bish.png";
-import { apiApartament } from "../../axios/apiApartament";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Banner1() {
-  const [logos, setLogos] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const BASE_URL = "https://68e14f818943bf6bb3c3e301.mockapi.io";
+  const navigate = useNavigate();
 
   useEffect(() => {
-    apiApartament
-      .get("/apartments")
-      .then((res) => {
-        const newLogos = res.data
-          .map((item) => item.imageC)
-          .filter((logo) => logo)
-          .map((logo) =>
-            logo.startsWith("http") ? logo : `${BASE_URL}${logo}`
-          );
+    const fetchCompanies = async () => {
+      try {
+        const res = await axios.get(
+          "https://68e14f818943bf6bb3c3e301.mockapi.io/company/House/apartments"
+        );
+        setCompanies(res.data);
+      } catch (err) {
+        console.error("Ошибка при загрузке логотипов:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        setLogos(newLogos);
-      })
-      .catch((err) => console.error("Ошибка загрузки логотипов:", err))
-      .finally(() => setLoading(false));
+    fetchCompanies();
   }, []);
 
-  if (loading) return <p>Загрузка логотипов...</p>;
+  if (loading) return <p className="banner-loading">Загрузка логотипов...</p>;
 
   return (
     <div className="Banner1_C">
       <div className="TEXTB">
-        <h2 className="title">Наши строй компании</h2>
+        <h2 className="title">Наши строительные компании</h2>
       </div>
+
       <div className="BA1_scroll_wrapper">
         <img src={Bish} alt="" className="IMG_BISH" />
         <div className="BA1_auto_scroll">
-          {[...logos, ...logos].map((logo, i) => (
-            <div className="DIv1" key={i}>
-              <img src={logo} alt={`Логотип компании ${i + 1}`} />
+          {[...companies, ...companies].map((company, index) => (
+            <div
+              key={index}
+              className="DIv1"
+              onClick={() => navigate(`/companies/${company.id}`)}
+            >
+              <img
+                src={company.imageC || "Картинка остсуствует!"}
+                alt={company.title || "Компания"}
+              />
             </div>
           ))}
         </div>

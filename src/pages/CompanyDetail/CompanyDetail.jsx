@@ -1,13 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import "./CompanyDetail.scss";
+import { addToWish, removeFromWish } from "../../redux/Wish/wishSlice";
+import B_HEART from "../../assets/image/B_heart.png";
+import R_HEART from "../../assets/image/R_heart.png";
+import Loadinger from "../../components/Loading/Loading";
 
 function CompanyDetail() {
     const { id } = useParams();
     const [company, setCompany] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
+    const isLiked = (dev) => wishItems.some((i) => i.id === dev.id);
+    const handleLike = (dev) => {
+        if (isLiked(dev)) dispatch(removeFromWish(dev));
+        else dispatch(addToWish(dev));
+    };
+    const dispatch = useDispatch();
+    const wishItems = useSelector((state) => state.wish.items);
+
 
     useEffect(() => {
         const fetchCompany = async () => {
@@ -26,9 +40,7 @@ function CompanyDetail() {
         fetchCompany();
     }, [id]);
 
-    if (loading) {
-        return <div className="company-detail__loading">Загрузка...</div>;
-    }
+    if (loading) return <Loadinger />;
 
     if (error) {
         return <div className="company-detail__error">{error}</div>;
@@ -41,11 +53,19 @@ function CompanyDetail() {
     return (
         <div className="company-detail">
             <div className="company-detail__card">
-                <img
-                    src={company.image || "https://via.placeholder.com/300x200"}
-                    alt={company.name}
-                    className="company-detail__image"
-                />
+                <div className="Cardiv">
+                    <img
+                        src={company.image || "Кортинка отсутствует!"}
+                        alt={company.name}
+                        className="company-detail__image"
+                    />
+                    <button
+                        className={`heart-btn ${isLiked(company) ? "liked" : ""}`}
+                        onClick={() => handleLike(company)}
+                    >
+                        <img src={isLiked(company) ? R_HEART : B_HEART} alt="heart" />
+                    </button>
+                </div>
                 <div className="company-detail__info">
                     <h2>{company.title || "Описание отсутствует."}</h2>
                     <p className="COnas">{company.developer || "Описание отсутствует."}</p>

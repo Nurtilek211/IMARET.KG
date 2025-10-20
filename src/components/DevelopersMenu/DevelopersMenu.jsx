@@ -6,6 +6,7 @@ import { addToWish, removeFromWish } from "../../redux/Wish/wishSlice";
 import B_HEART from "../../assets/image/B_heart.png";
 import R_HEART from "../../assets/image/R_heart.png";
 import "./DevelopersMenu.scss";
+import Loadinger from "../Loading/Loading";
 
 function DevelopersMenu() {
     const { search } = useOutletContext();
@@ -43,7 +44,7 @@ function DevelopersMenu() {
         return titleMatch || developerMatch;
     });
 
-    if (loading) return <div className="developers-menu__loading">Загрузка...</div>;
+    if (loading) return <Loadinger/>;
 
     return (
         <div className="developers-menu">

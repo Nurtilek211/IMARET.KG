@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import DevelopersMenu from "./components/DevelopersMenu/DevelopersMenu";
 import CompanyDetail from "./pages/CompanyDetail/CompanyDetail";
 import Developers from "./components/Developers/Developers";
+import Loading from "./components/Loading/Loading";
 
 const myRouter = createBrowserRouter([
   {
